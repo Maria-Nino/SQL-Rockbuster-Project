@@ -1,0 +1,29 @@
+# This SQL query is trying to find the average amount paid by the top 5 customers
+
+WITH average_amount_paid_cte (customer_id, 
+                              first_name, 
+                              last_name,  
+                              city, country, 
+                              total_paid_amount) AS
+(SELECT A.customer_id,
+        B.first_name,
+        B.last_name,
+        D. city,
+        E. country,
+SUM (amount) AS total_paid_amount
+  FROM payment A
+  INNER JOIN customer B on A.customer_id = B.customer_id
+  INNER JOIN address C on B.address_id = C.address_id
+  INNER JOIN city D on C.city_id = D.city_id
+  INNER JOIN country E on D.country_id = E.country_id
+GROUP BY A.customer_id, 
+         B.first_name,
+         B.last_name,
+         D.city , 
+         E.country
+HAVING city in
+('Aurora', 'Acua', 'Citrus Heights', 'Iwaki', 'Ambattur', 'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin','Sianjur')
+ORDER BY SUM(amount) DESC
+LIMIT 5)
+SELECT AVG (total_paid_amount) AS average
+FROM average_amount_paid_cte
