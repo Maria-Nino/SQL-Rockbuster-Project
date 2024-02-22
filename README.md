@@ -7,3 +7,7 @@ This project uses SQL to analyze the data and answer the key questions and objec
 3. Which countries are Rockbuster customers based in?
 4. Where are customers with a high lifetime value based?
 5. Do sales figures vary between geographic regions?
+# Data
+This project uses a data set that contains information about Rockbuster’s film inventory, customers, and payments, among other things. This data set was created and provided by Career Foundry in the project brief. 
+# Visualizations
+All visualizations were created via Tableau Plublic and can be found here: https://public.tableau.com/app/profile/maria.nino/viz/Book1_16984988826110/Story1
